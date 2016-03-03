@@ -613,9 +613,7 @@ Mettre son code sur la glace (ex.: pour changer de branche sans commiter)
 
 ## 9. Workflow
 
-### Versionnage local
-
-Vérifier l'état du dépôt local
+Vérifier la branche et l'état du dépôt local
 
     $ git status
 
@@ -625,7 +623,18 @@ Tirer en local la dernière version du serveur
 
 Éditer l'arborescence du projet
 
-Au besoin, ajouter les fichiers et répertoires à l'index de git
+Vérifier ses changements
+
+    $ git show
+    $ git diff
+    $ git diff --summary
+
+Annuler complètement toutes ses modifications
+
+        $ git checkout <file>
+        $ git checkout .
+
+Ajouter les fichiers et répertoires à l'index de git
 
     $ git add .
 
@@ -633,27 +642,23 @@ Au besoin, supprimer des fichiers ou répertoires de l'index de git
 
     $ git rm nom_fichier
 
-Vérifier ses changements
-
-    $ git show
-    $ git diff
-    $ git diff --summary
-
-Annuller complètement toutes ses modifications
-
-    $ git checkout .
-
 Engager ses changements
 
-    $ git commit -a -m "message significatif de commit"
+    $ git commit -m "[#12345] Message significatif de commit"
 
-S'assurer d'avoir la dernière version avant de pousser
+Retravailler son ensemble de commit (pas couvert dans cet atelier)
+
+    $ git rebase
+
+S'assurer d'avoir la dernière version avant de pousser sur serveur
 
     $ git pull
 
 Pousser sa nouvelle version locale sur le serveur
 
     $ git push
+
+Demander un Merge Request / Pull Request
 
 ### Développement projet
 
