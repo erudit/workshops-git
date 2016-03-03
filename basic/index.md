@@ -126,8 +126,8 @@ Le répertoire du dépôt Git (et donc ses sous-répertoires et fichiers).
 
 ### États des fichiers
 
-* *tracked*: suivi par git
 * *untracked*: ignoré par git
+* *tracked*: suivi par git
     * *modified*: le fichier a été modifié depuis le dernier commit
     * *staged*: le fichier modifié a été ajouté (à l'index) pour le prochain commit
     * *commited*: enregistré dans l'historique
@@ -141,7 +141,7 @@ Modifications enregistrées par Git, prêtes à être commitées.
 * ensemble de modifications ajoutées à l'historique en une fois (en un bloc)
 * identifiant unique = hash : SHA1
 * message   
-Le commentaire à saisir doit être de la forme suivante : `"\[#12345\] message"`, où 12345 représente le numéro de la demande redmine concernée par le commit.
+Le commentaire à saisir doit être de la forme suivante : `"[#12345] message"`, où 12345 représente le numéro de la demande redmine concernée par le commit.
 
 ### Tree
 
@@ -600,7 +600,7 @@ Utiliser une étiquette
 
 ### Exercices
 
-## 8. Fragments de modification
+## 8. Suspendre des modifications
 
 Mettre son code sur la glace (ex.: pour changer de branche sans commiter)
 
