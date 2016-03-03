@@ -1,6 +1,6 @@
 # Django workshops
 
-*Érudit's hands-on trainings on Git version control system.*
+*Érudit's hands-on trainings on Git - distributed version control system.*
 
 ---
 

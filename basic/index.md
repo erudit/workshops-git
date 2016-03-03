@@ -689,7 +689,7 @@ Demander un Merge Request / Pull Request
 [setup]: setup.md
 [gitignore]: https://github.com/github/gitignore
 
-[schema-depots]: schema-depots.jpg
+[schema-depots]: schema-depots.png
 
 [git]: http://git-scm.com/
 [git-doc]: http://git-scm.com/doc
