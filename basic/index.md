@@ -24,9 +24,11 @@ Documentation
 
 Environnement
 
-* terminal ou git gui
-* [GitLab d'Érudit][erudit-gitlab]
-* [Érudit sur GitHub][erudit-github]
+* Local
+    * terminal ou git gui
+* Distant
+    * [GitLab d'Érudit][erudit-gitlab]
+    * [Érudit sur GitHub][erudit-github]
 
 [Setup technique][setup]
 
@@ -79,20 +81,26 @@ Schéma : [Dépôts Git][schema-depots]
 System side
 
 * _git, le programme qui gère vos dépôts_
+
         /usr/bin/git
 
 User side
 
 * _configuration globale, pour tout dépôt local_
+
         /home/<user>/.gitconfig
         /home/<user>/.gitignore
 
 Project side
 
 * _dépôt local git et sa configuration pour le projet_
+
         /<path>/.git
+
 * _fichiers non suivis pour ce projet_
+
         /<path>/.gitignore
+
 
 ### Dépôts distribués
 
@@ -197,7 +205,8 @@ Créer du contenu (un répertoire et un fichier) sous `atelier`
 
 Créer le fichier caché commandant à git d'ignorer certains fichiers ou répertoires
 
-* `.gitignore` : [exemples de .gitignore][gitignore]
+* `.gitignore`
+    * [exemples de .gitignore][gitignore]
 
 Ajouter les fichiers et répertoires à l'index de git
 
@@ -207,7 +216,7 @@ Ajouter les fichiers et répertoires à l'index de git
 
 Engager ses changements
 
-    $ git commit -a -m "Initial commit"
+    $ git commit -m "Initial commit"
 
 Vérifier le journal des commits, le dernier commit
 
@@ -226,11 +235,9 @@ Vérifier l'historique des versions (commits et qui a fait modif) pour chaque li
 
 ### Revenir en arrière
 
-<pre>
-$ git commit --amend
-$ git reset
-$ git checkout
-</pre>
+    $ git commit --amend
+    $ git reset
+    $ git checkout
 
 ### Commandes
 
@@ -278,9 +285,9 @@ Répertoires
 1. vérifier s'il y a du contenu à suivre
 1. ajouter des fichiers au répertoire
 1. vérifier s'il y a du contenu à suivre
-1. ajouter un répertoire ignoré globalement
+1. ajouter un répertoire ignoré globalement (config user, pout tous les projets)
 1. tester si Git suit ses modifications
-1. ajouter un répertoire ignoré localement
+1. ajouter un répertoire ignoré localement (config locale, pour ce projet)
 1. tester si Git suit ses modifications
 
 ## GitLab
@@ -342,7 +349,7 @@ Créer un dépôt git sur le serveur à partir d'un dépôt local
 
 * plusieurs dépôts distants peuvent être configurés, il s'agit de leur fournir un nom (mot clé)
 
-        $ git remote add redmine git@git.erudit.team:prenom.nom/atelier-git.git
+        $ git remote add github git@github.com:prenom.nom/atelier-git.git
 
 * retrouver les noms configurés pour ses dépôts distants
 
@@ -357,8 +364,8 @@ Récupérer localement un dépôt git existant sur serveur
 * trouver l'URL du dépôt sur la page d'accueil du dépôt sur le serveur (SSH ou HTTPS)
 * cloner, dans le répertoire voulu (défaut = nom du dépôt cloné)
 
-        $ git clone git@gitlab.erudit.team:davin.baragiotta/atelier-git.git davin-ssh
-        $ git clone https://gitlab.erudit.team/davin.baragiotta/odoo-technic4functional.git davin-https
+        $ git clone git@gitlab.erudit.team:giotta/atelier-git.git giotta-ssh
+        $ git clone https://gitlab.erudit.team/giotta/atelier-git.git giotta-https
 
 Tirer localement la dernière version mise à jour d'un autre dépôt git (ex.: existant sur serveur)<br />
 *récupère et merge localement les mises à jour distantes (remote)*
@@ -367,28 +374,28 @@ Tirer localement la dernière version mise à jour d'un autre dépôt git (ex.: 
 
 Autoriser d'autres utilisateurs à commiter dans votre projet
 
-* GitLab : *<Project> > Settings > Members > New project member*
+* GitLab : *`<Project> > Settings > Members > New project member`*
 
 Régler les conflits
 
 * Vérifier un à un les fichiers impliqués
 * Chercher les versions en conflit
 
-      >>>>>
-      <<<<<
+        >>>>>
+        <<<<<
 
 * Choisir entre la version du HEAD et l'autre version
 * ... ou lancer via git un outil pour faciliter les correctifs à faire
 
-      $ git mergetool
+        $ git mergetool
 
 * outils recommandés : `meld`, `xxdiff`, `vimdiff`, `gvimdiff`
 
-      $ sudo apt-get install meld
+        $ sudo apt-get install meld
 
 Supprimer un dépôt sur le serveur
 
-* GitLab : *<Project> > Settings > Dangerous settings > Remove project*
+* GitLab : *`<Project> > Settings > Dangerous settings > Remove project`*
 
 ### Commandes
 
@@ -433,26 +440,29 @@ Lister les branches
 *(Branche en cours = précédée d'astérisque)*
 
 * locales
-      $ git branch
+
+        $ git branch
 
 * distantes (remotes)
-      $ git branch -r
 
-      $ git fetch --all
-      $ git branch -r
+        $ git branch -r
+
+        $ git fetch --all
+        $ git branch -r
 
 * toutes (all)
-      $ git branch -a
+
+        $ git branch -a
 
 Créer en local
 
 * créer branche neuve à partir du commit en cours
 
-      $ git branch mabranchelocale
+        $ git branch mabranchelocale
 
 * créer branche en local *à partir de* et *liée à* branche du serveur
 
-      $ git branch mabranchelocale -t labrancheserveur
+        $ git branch mabranchelocale -t labrancheserveur
 
 Créer sur serveur
 
@@ -477,11 +487,11 @@ Fusionner les branches
 
 Fusion pas symétrique :   
 
-    *(branche1) git merge branche2*
+    (branche1) git merge branche2
 
 **&ne;**
 
-    *(branche2) git merge branche1*
+    (branche2) git merge branche1
 
 Supprimer en local
 
@@ -535,9 +545,11 @@ Comparer deux commits, deux branches, deux versions (avec tags)
 
     git diff
 
-## 6. Merge Requests
+## 6. Merge Requests / Pull Requests
 
-* fusionner des branches *à la* GitHub
+* fusionner des branches
+    * Merge Request (MR) = vocable GitLab
+    * Pull Request (PR) = vocable GitHub
 * séparation des rôles : release manager (reviewer), développeur
 
 ### Exercices
@@ -548,8 +560,9 @@ Reprendre exercice sur branches, mais faire la fusion des branches via Merge Req
 
 Lorsque votre contribution correspond à une version stable, l'identifier en y apposant une étiquette avec le nom de la version.
 * Convention de nommage des version : 1.2.3 : 1 = major, 2 = minor, 3 = adjustment
-    * http://legacy.python.org/dev/peps/pep-0440/
-    * http://legacy.python.org/dev/peps/pep-0396/
+    * http://semver.org/
+        * http://legacy.python.org/dev/peps/pep-0440/
+        * http://legacy.python.org/dev/peps/pep-0396/
 
 Ajouter une étiquette
 
@@ -620,15 +633,15 @@ Au besoin, supprimer des fichiers ou répertoires de l'index de git
 
     $ git rm nom_fichier
 
-Annuller complètement ses modifications
-
-    $ git checkout .
-
 Vérifier ses changements
 
     $ git show
     $ git diff
     $ git diff --summary
+
+Annuller complètement toutes ses modifications
+
+    $ git checkout .
 
 Engager ses changements
 
@@ -650,6 +663,9 @@ Pousser sa nouvelle version locale sur le serveur
 ### Commandes
 
     git checkout .
+
+### Commandes non vues
+
     git reset
     git revert
 
@@ -662,6 +678,7 @@ Pousser sa nouvelle version locale sur le serveur
   * [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
   * [A Visual Git Reference](http://marklodato.github.com/visual-git-guide/index-en.html)
   * [Interactive Git Cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
+
 ---
 
 [setup]: setup.md
